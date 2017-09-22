@@ -13,7 +13,7 @@ app.use(cors());
 app.use('/pi/sensors', sensorRoutes);
 
 app.get('/pi', function (req, res) {
-  res.send('This is the WoT-Pi!')
+  res.send('Hello guys!')
 });
 
 app.use(converter());
