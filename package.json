@@ -18,6 +18,13 @@
   },
   "homepage": "https://github.com/nicolaile/iot2#readme",
   "dependencies": {
-    "cors": "^2.8.4"
+    "cors": "^2.8.4",
+    "json2html": "0.0.8",
+    "msgpack5": "^3.5.1",
+    "node-json2html": "^1.1.1"
+  },
+  "optionalDependencies": {
+    "onoff": "^1.0.4",
+    "node-dht-sensor": "^0.0.8"
   }
 }
