@@ -5,7 +5,6 @@ var express = require('express'),
     cors = require('cors'),
     bodyParser = require('body-parser');
 
-  //  converter = require('./../middleware/converter');
 
 var app = express();
 
@@ -21,5 +20,4 @@ app.get('/pi', function (req, res) {
   res.send('Hello guys!')
 });
 
-//app.use(converter());
 module.exports = app;

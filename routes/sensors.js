@@ -4,12 +4,12 @@ var express = require('express'),
 
 var model = resources.pi.sensors;
 
-router.route('/').get(function (req, res, next) { //#B
+router.route('/').get(function (req, res, next) {
   res.send(model);
 
 });
 
-router.route('/temperature').get(function (req, res, next) { //#E
+router.route('/temperature').get(function (req, res, next) {
   res.send(model.temperature);
 
 });
@@ -20,7 +20,7 @@ router.route('/temperature/value').get(function (req,res,next){
   });
 });
 
-router.route('/humidity').get(function (req, res, next) { //#E
+router.route('/humidity').get(function (req, res, next) { 
   res.send = (model.humidity);
 
 });

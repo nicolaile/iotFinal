@@ -15,7 +15,7 @@ var server = require('./../server');
     res.send(resources.pi.actuators.leds[req.params.id]);
   }).put(function(req,res,next){
 
-    var myLed = resources.pi.actuators.leds[req.params.id];
+   var myLed = resources.pi.actuators.leds[req.params.id];
    myLed.value = req.body.value;
 
    server.switchOnOff();
