@@ -3,10 +3,9 @@ var httpServer = require('./servers/http'),
 var onoff = require('onoff');
 var dhtPlugin = require('./plugins/DHT22SensorPlugin');
 var Gpio = require('onoff').Gpio;
-actuator = new Gpio(4, 'out'); //#D
+actuator = new Gpio(4, 'out'); /
 
-dhtPlugin.start({'simulate': true, 'frequency': 10000});
-//ledPlugin.start({'simulate':false});
+dhtPlugin.start({'simulate': false, 'frequency': 10000});
 
 var server = httpServer.listen(resources.pi.port, function () {
     console.info('RaspberryPi 3 is running on port %s',
@@ -17,7 +16,6 @@ var server = httpServer.listen(resources.pi.port, function () {
   var actuator, interval;
   var model = resources.pi.actuators.leds['1'];
   var pluginName = model.name;
-//  var localParams = {'simulate': false, 'frequency': 2000};
 
 
 exports.switchOnOff = function() {
