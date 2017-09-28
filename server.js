@@ -2,7 +2,7 @@ var httpServer = require('./servers/http'),
     resources = require('./resources/model');
 
 var dhtPlugin = require('./plugins/DHT22SensorPlugin');
-var ledPlugin = require('./plugins/ledsPlugin');
+//var ledPlugin = require('./plugins/ledsPlugin');
 
 var Gpio = require('onoff').Gpio;
 actuator = new Gpio(model.gpio, 'out'); //#D
