@@ -43,6 +43,10 @@ var ledActuator = {
   read: function() {
     switchOnOff();
   }
+
+  setTimeout(function(){
+    ledActuator.read();
+  });
 }
 
 };
