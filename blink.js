@@ -27,6 +27,12 @@ process.on('SIGINT', function () { //#F
   process.exit();
 });
 
+var server = app.listen(port, function () {
+   var host = server.address().address
+   var port = server.address().port
+
+   console.log("Listening on http://%s:%s", host, port);
+})
 // #A Import the onoff library
 // #B Initialize pin 4 to be an output pin
 // #C This interval will be called every 2 seconds
