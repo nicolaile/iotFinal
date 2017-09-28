@@ -1,7 +1,7 @@
 var express = require('express'),
   router = express.Router(), //#A
   resources = require('./../resources/model'),
-ledPlugin = require('./../server');
+server = require('./../server');
 
   router.route('/').get(function (req, res, next) { // #A
    res.send(resources.pi.actuators); // #B
@@ -17,7 +17,8 @@ ledPlugin = require('./../server');
 
   var myLed = resources.pi.actuators.leds[req.params.id];
    myLed.value = req.body.value;
-   ledPlugin.switchOnOff();
+
+   server.switchOnOff();
 
    console.info('put request done');
       res.send(myLed.value);
