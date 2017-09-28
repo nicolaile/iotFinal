@@ -44,7 +44,10 @@ function connectHardware() {
   var Gpio = require('onoff').Gpio;
   actuator = new Gpio(model.gpio, 'out'); //#D
   console.info('Hardware %s actuator started!' + actuator.readSync(), pluginName);
-  actuator.write(actuator.readSync()+1);
+
+  actuator.write(value === true ? 1 : 0, function () { //#C
+    console.info('Changed value of %s to %s', pluginName, value);
+  });
 };
 
 function simulate() {
