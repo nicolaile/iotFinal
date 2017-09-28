@@ -32,32 +32,24 @@ exports.stop = function () {
   });
 };
 */
-
-
-function connectHardware() {
-  var Gpio = require('onoff').Gpio;
-  actuator = new Gpio(model.gpio, 'out'); //#D
-  console.info('Hardware %s actuator started!' + actuator.readSync(), pluginName);
-
-var ledActuator = {
-  read: function() {
-    switchOnOff();
-  }
-
-  setTimeout(function(){
-    ledActuator.read();
-  });
-}
-
-};
-
-function switchOnOff(va) {
+var switchOnOff = function() {
   if (!localParams.simulate) {
     actuator.write(value === true ? 1 : 0, function () { //#C
       console.info('Changed value of %s to %s', pluginName, value);
     });
   }
 };
+
+function connectHardware() {
+  var Gpio = require('onoff').Gpio;
+  actuator = new Gpio(model.gpio, 'out'); //#D
+  console.info('Hardware %s actuator started!' + actuator.readSync(), pluginName);
+
+  actuator.write(model.value === true ? 1 : 0, function () { //#C
+    console.info('Changed value of %s to %s', pluginName, model.value);
+  });
+};
+
 
 function simulate() {
   interval = setInterval(function () {
@@ -71,6 +63,9 @@ function simulate() {
   console.info('Simulated %s actuator started!', pluginName);
 };
 
+module.exports = {
+  switchOnOff
+};
 //#A Observe the model for the LEDs
 //#B Listen for model changes, on changes call switchOnOff
 //#C Change the LED state by changing the GPIO state
