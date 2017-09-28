@@ -7,7 +7,7 @@ var localParams = {'simulate': false, 'frequency': 2000};
 
 exports.start = function (params) {
   localParams = params;
-  observe(model); //#A
+  //observe(model); //#A
 
   if (localParams.simulate) {
     simulate();
