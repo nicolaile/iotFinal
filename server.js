@@ -21,7 +21,7 @@ var server = httpServer.listen(resources.pi.port, function () {
 
 
 exports.switchOnOff = function() {
-        actuator.write(value === true ? 1 : 0, function () { //#C
-          console.info('Changed value of %s to %s', pluginName, value);
+        actuator.write(model.value === true ? 1 : 0, function () { //#C
+          console.info('Changed value of %s to %s', pluginName, model.value);
         });
   };
