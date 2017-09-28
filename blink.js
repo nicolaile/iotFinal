@@ -10,7 +10,7 @@ app.get('/ledtest',function(req,res,next){
   res.send(value);
 })
 
-interval = setInterval(function () { //#C
+interval = setInterval(function () { //#
   var value = (led.readSync() + 1) % 2; //#D
   led.write(value, function() { //#E
     console.log("Changed LED state to: " + value);
