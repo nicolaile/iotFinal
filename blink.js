@@ -27,11 +27,8 @@ process.on('SIGINT', function () { //#F
   process.exit();
 });
 
-var server = app.listen(port, function () {
-   var host = server.address().address
-   var port = server.address().port
-
-   console.log("Listening on http://%s:%s", host, port);
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
 })
 // #A Import the onoff library
 // #B Initialize pin 4 to be an output pin
