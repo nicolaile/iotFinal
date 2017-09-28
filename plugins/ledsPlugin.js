@@ -50,6 +50,10 @@ function connectHardware() {
   });
 };
 
+actuator.write(model.value === true ? 1 : 0, function () { //#C
+  console.info('Changed value of %s to %s', pluginName, model.value);
+});
+
 function simulate() {
   interval = setInterval(function () {
     // Switch value on a regular basis
