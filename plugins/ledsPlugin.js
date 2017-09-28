@@ -45,14 +45,11 @@ function connectHardware() {
   actuator = new Gpio(model.gpio, 'out'); //#D
   console.info('Hardware %s actuator started!' + actuator.readSync(), pluginName);
 
-  actuator.write(model.value === true ? 1 : 0, function () { //#C
+  actuator.write(model.value === 0 ? 1 : 0, function () { //#C
     console.info('Changed value of %s to %s', pluginName, model.value);
   });
 };
 
-actuator.write(model.value === true ? 1 : 0, function () { //#C
-  console.info('Changed value of %s to %s', pluginName, model.value);
-});
 
 function simulate() {
   interval = setInterval(function () {
