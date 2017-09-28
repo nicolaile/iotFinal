@@ -3,7 +3,7 @@ var httpServer = require('./servers/http'),
 var onoff = require('onoff');
 var dhtPlugin = require('./plugins/DHT22SensorPlugin');
 var Gpio = require('onoff').Gpio;
-actuator = new Gpio(4, 'out'); /
+actuator = new Gpio(4, 'out');
 
 dhtPlugin.start({'simulate': false, 'frequency': 10000});
 
