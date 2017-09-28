@@ -20,14 +20,8 @@ var server = httpServer.listen(resources.pi.port, function () {
 //  var localParams = {'simulate': false, 'frequency': 2000};
 
 
-var switchOnOff = function() {
+exports.switchOnOff = function() {
         actuator.write(value === true ? 1 : 0, function () { //#C
           console.info('Changed value of %s to %s', pluginName, value);
         });
   };
-
-
-
-    module.exports = {
-      switchOnOff
-    };
