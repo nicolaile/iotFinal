@@ -1,7 +1,7 @@
 var express = require('express'),
   router = express.Router(), //#A
   resources = require('./../resources/model'),
-ledPlugin = require('./server');
+ledPlugin = require('./../server');
 
   router.route('/').get(function (req, res, next) { // #A
    res.send(resources.pi.actuators); // #B
