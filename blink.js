@@ -1,8 +1,14 @@
 var onoff = require('onoff'); //#A
+var express = require ('express');
 
 var Gpio = onoff.Gpio,
   led = new Gpio(4, 'out'), //#B
-  interval;
+
+  var value = led.readSync();
+
+app.get('/ledtest',function(req,res,next){
+  res.send(value);
+})
 
 interval = setInterval(function () { //#C
   var value = (led.readSync() + 1) % 2; //#D
