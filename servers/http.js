@@ -8,6 +8,7 @@ var express = require('express'),
 var resources = require('./../resources/resources.json');
 
 const hbs = require('hbs');
+const fs = require('fs');
 
 
 var app = express();
