@@ -34,30 +34,34 @@ exports.switchOnOff = function() {
 
 var sendRequest = function() {
   console.log('request send to bootnode');
-request.post(
-  'http://172.20.10.2:3500/store', {
-    json: {
-      remoteId: 'http://172.20.10.9:8484/pi'
+  request.post(
+    'http://172.20.10.2:3500/store', {
+      json: {
+        remoteId: 'http://172.20.10.9:8484/pi'
+      }
+    },
+    function(error, response, body) {
+      if (!error && response.statusCode == 200) {
+        console.log('request response recieved');
+      }
     }
-  },
-  function(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log('request response recieved');
-    }
-  }
-);
+  );
 }
 
 sendRequest();
-temperature = [];
-var saveToLog = function(){
-  temperature.push(resources.pi.sensors.temperature.value);
-  console.log('wrote ' + resources.pi.sensors.temperature.value);
-  fs.writeFileSync('temperature_log.json', JSON.stringify(temperature));
+var temperature = [];
+var lastTemp = 0;
+
+var saveToLog = function() {
+  var temp = resources.pi.sensors.temperature.value
+  if (temp !== lastTemp) {
+    temperature.push(temp);
+    console.log('wrote ' + temp);
+    fs.writeFileSync('temperature_log.json', JSON.stringify(temperature));
+    lastTemp = temp;
+  }
 }
 
-
-
-  setInterval(() => {
-    saveToLog();
-  }, 3000);
+setInterval(() => {
+  saveToLog();
+}, 5000);
