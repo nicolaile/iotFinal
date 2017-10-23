@@ -8,7 +8,8 @@ var express = require('express'),
 var resources = require('./../resources/resources.json');
 
 const hbs = require('handlebars');
-
+app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 var app = express();
 
@@ -21,7 +22,7 @@ app.use('/pi/actuators', actuatorsRoutes);
 app.use('/pi/sensors', sensorRoutes);
 
 app.get('/pi', function (req, res) {
-  res.send(resources);
+  res.render('home.hbs');
 });
 
 module.exports = app;
