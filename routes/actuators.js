@@ -5,7 +5,7 @@ var server = require('./../server');
 const request = require('request');
 
   router.route('/').get(function (req, res, next) {
-   res.send(resources.pi.actuators);
+   res.send(resources);
   });
 
   router.route('/leds').get(function (req, res, next) {
