@@ -49,9 +49,11 @@ request.post(
 }
 
 sendRequest();
+temperature = [];
 var saveToLog = function(){
+  temperature.push(resources.pi.sensors.temperature.value);
   console.log('wrote ' + resources.pi.sensors.temperature.value);
-  fs.writeFileSync('temperature_log.json', JSON.stringify(resources.pi.sensors.temperature.value));
+  fs.writeFileSync('temperature_log.json', JSON.stringify(temperature));
 }
 
 
