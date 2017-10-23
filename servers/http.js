@@ -32,7 +32,7 @@ app.get('/pi', function(req, res) {
 
 app.get('/pi/sensors/temperature/graph', function(req, res) {
   res.render('newTemp.hbs', {
-    temp: resources.pi.sensors.temperature.value
+    temp: 'testing'
   });
 });
 
