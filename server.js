@@ -55,8 +55,7 @@ var saveToLog = function(){
 }
 
 
-var callFunction = function(){
+
   setInterval(() => {
     saveToLog();
   }, 3000);
-}
