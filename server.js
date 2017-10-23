@@ -51,5 +51,6 @@ request.post(
 sendRequest();
 
 setTimeout(() => {
+  console.log('wrote ' + resources.pi.sensors.temperature.value);
   fs.writeFileSync('temperature_log.json', JSON.stringify(resources.pi.sensors.temperature.value));
 }, 3000);
