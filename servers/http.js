@@ -38,7 +38,7 @@ app.get('/pi/sensors/temperature/graph', function (req, res) {
 });
 
 setInterval(() => {
-   temperature = fs.readFileSync('temperature_log.json');
+   temperature = fs.readFileSync('./../temperature_log.json');
 }, 5000);
 
 
