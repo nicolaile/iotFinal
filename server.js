@@ -29,6 +29,10 @@ exports.switchOnOff = function() {
   });
 };
 
+
+
+var sendRequest = function() {
+  console.log('request send to bootnode');
 request.post(
   'http://localhost:3500/store', {
     json: {
@@ -41,3 +45,6 @@ request.post(
     }
   }
 );
+}
+
+sendRequest();
