@@ -49,8 +49,14 @@ request.post(
 }
 
 sendRequest();
-
-setTimeout(() => {
+var saveToLog = function(){
   console.log('wrote ' + resources.pi.sensors.temperature.value);
   fs.writeFileSync('temperature_log.json', JSON.stringify(resources.pi.sensors.temperature.value));
-}, 3000);
+}
+
+
+var callFunction = function(){
+  setInterval(() => {
+    saveToLog();
+  }, 3000);
+}
