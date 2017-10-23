@@ -56,7 +56,7 @@ var saveToLog = function() {
     var temp = resources.pi.sensors.temperature.value
     temperature.push(temp);
     console.log('wrote ' + temp);
-    fs.writeFileSync('temperature_log.json', JSON.stringify(temperature));
+    fs.writeFileSync('servers/temperature_log.json', JSON.stringify(temperature));
 }
 
 setInterval(() => {

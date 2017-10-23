@@ -28,4 +28,19 @@ app.get('/pi', function (req, res) {
   res.render('home.hbs');
 });
 
+app.get('/pi/sensors/temperature/graph', function (req, res) {
+  res.render('tempGraph.hbs', {
+  temp: fetchTemp();
+});
+});
+
+var fetchTemp = () => {
+  try {
+    var temperature = fs.readFileSync('temperature_log.json');
+    return JSON.parse(temperature);
+  } catch (e) {
+    return [];
+  }
+};
+
 module.exports = app;
