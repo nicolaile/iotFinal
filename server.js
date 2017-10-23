@@ -50,16 +50,12 @@ var sendRequest = function() {
 
 sendRequest();
 var temperature = [];
-var lastTemp = 0;
 
 var saveToLog = function() {
-  var temp = resources.pi.sensors.temperature.value
-  if (temp !== lastTemp) {
+    var temp = resources.pi.sensors.temperature.value
     temperature.push(temp);
     console.log('wrote ' + temp);
     fs.writeFileSync('temperature_log.json', JSON.stringify(temperature));
-    lastTemp = temp;
-  }
 }
 
 setInterval(() => {
