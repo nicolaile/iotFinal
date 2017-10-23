@@ -5,6 +5,8 @@ var express = require('express'),
     cors = require('cors'),
     bodyParser = require('body-parser');
 
+var resources = require('./../resources/resources.json');
+
 
 var app = express();
 
@@ -17,7 +19,7 @@ app.use('/pi/actuators', actuatorsRoutes);
 app.use('/pi/sensors', sensorRoutes);
 
 app.get('/pi', function (req, res) {
-  res.send('Hello guys!')
+  res.send(resources);
 });
 
 module.exports = app;
