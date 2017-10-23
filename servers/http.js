@@ -36,10 +36,10 @@ app.get('/pi', function (req, res) {
 });
 
 
-var temperature;
+
 app.get('/pi/sensors/temperature/graph', function (req, res) {
   res.render('tempGraph.hbs', {
-  temp: temperature
+  temp: resources.pi.sensors.temperature.value
 });
 });
 
