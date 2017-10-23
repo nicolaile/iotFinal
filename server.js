@@ -5,7 +5,7 @@ var dhtPlugin = require('./plugins/DHT22SensorPlugin');
 var Gpio = require('onoff').Gpio;
 actuator = new Gpio(4, 'out');
 
-const require = require('require');
+const request = require('request');
 
 dhtPlugin.start({
   'simulate': false,
