@@ -2,6 +2,7 @@ var express = require('express'),
   router = express.Router(),
   resources = require('./../resources/model');
 var server = require('./../server');
+const request = require('request');
 
   router.route('/').get(function (req, res, next) {
    res.send(resources.pi.actuators);
