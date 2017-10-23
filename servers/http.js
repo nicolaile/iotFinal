@@ -7,6 +7,8 @@ var express = require('express'),
 
 var resources = require('./../resources/resources.json');
 
+const hbs = require('handlebars');
+
 
 var app = express();
 
