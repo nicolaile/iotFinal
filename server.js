@@ -33,10 +33,11 @@ exports.switchOnOff = function() {
 
 var sendRequest = function() {
   console.log('request send to bootnode');
+  console.log('what is' +  model);
 request.post(
   'http://172.20.10.2:3500/store', {
     json: {
-      value: 'Hey from RaspberryPi'
+      remoteId: model
     }
   },
   function(error, response, body) {
