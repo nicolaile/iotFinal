@@ -36,7 +36,7 @@ var sendRequest = function() {
 request.post(
   'http://localhost:3500/store', {
     json: {
-      value: model
+      value: 'Hey from RaspberryPi'
     }
   },
   function(error, response, body) {
