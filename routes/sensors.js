@@ -5,7 +5,7 @@ var express = require('express'),
 var model = resources.pi.sensors;
 
 router.route('/').get(function (req, res, next) {
-  res.send(model);
+  res.send(model.sensors);
 
 });
 
@@ -20,7 +20,7 @@ router.route('/temperature/value').get(function (req,res,next){
   });
 });
 
-router.route('/humidity').get(function (req, res, next) { 
+router.route('/humidity').get(function (req, res, next) {
   res.send = (model.humidity);
 
 });
