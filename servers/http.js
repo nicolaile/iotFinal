@@ -7,7 +7,7 @@ var express = require('express'),
 
 var resources = require('./../resources/resources.json');
 
-const hbs = require('handlebars');
+const hbs = require('hbs');
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
