@@ -1,9 +1,9 @@
 var express = require('express'),
-    actuatorsRoutes = require('./../routes/actuators'),
-    sensorRoutes = require('./../routes/sensors'),
-    resources = require('./../resources/model'),
-    cors = require('cors'),
-    bodyParser = require('body-parser');
+  actuatorsRoutes = require('./../routes/actuators'),
+  sensorRoutes = require('./../routes/sensors'),
+  resources = require('./../resources/model'),
+  cors = require('cors'),
+  bodyParser = require('body-parser');
 
 var resources = require('./../resources/resources.json');
 
@@ -25,16 +25,16 @@ app.use('/pi/actuators', actuatorsRoutes);
 
 app.use('/pi/sensors', sensorRoutes);
 
-app.get('/pi', function (req, res) {
+app.get('/pi', function(req, res) {
   res.render('home.hbs');
 });
 
 
-// app.get('/pi/sensors/temperature/graph', function (req, res) {
-//   res.render('newTemp.hbs', {
-//   temp: resources.pi.sensors.temperature.value
-// });
-// });
+app.get('/pi/sensors/temperature/graph', function(req, res) {
+  res.render('newTemp.hbs', {
+    temp: resources.pi.sensors.temperature.value
+  });
+});
 
 
 
