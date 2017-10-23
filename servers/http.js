@@ -8,10 +8,13 @@ var express = require('express'),
 var resources = require('./../resources/resources.json');
 
 const hbs = require('hbs');
-app.set('view engine', 'hbs');
-hbs.registerPartials(__dirname + '/views/partials');
+
 
 var app = express();
+
+
+app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(bodyParser.json());
 
