@@ -19,12 +19,6 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 app.use(cors());
 
 app.use('/pi/actuators', actuatorsRoutes);
@@ -36,16 +30,12 @@ app.get('/pi', function (req, res) {
 });
 
 
-
 app.get('/pi/sensors/temperature/graph', function (req, res) {
   res.render('tempGraph.hbs', {
   temp: resources.pi.sensors.temperature.value
 });
 });
 
-setInterval(() => {
-   temperature = fs.readFileSync('temperature_log.json');
-}, 5000);
 
 
 
